@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.exporters.__init__
+# Role:          Package Initialization & Public API Declarations
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Exporters for audit reports in table, JSON, and SARIF formats."""
 
 from lh_net_posture.exporters.dispatcher import export_report, render_report
@@ -12,4 +22,3 @@ __all__ = [
     "render_report",
     "render_rich_table",
 ]
-

@@ -5,12 +5,16 @@ build-backend = "hatchling.build"
 [project]
 name = "lh-net-posture"
 version = "0.1.0"
-description = "Asynchronous local and edge-node network exposure auditor by Logihertz Systems OPC Pvt Ltd"
+description = "Inspects listening socket tables (ss/netstat), routing tables, ARP caches, VLAN trunks, and network interface configurations to flag cleartext protocols (Telnet/FTP), 0.0.0.0 management bindings, and IP forwarding risks."
 readme = "README.md"
-license = "MIT"
+license = "Apache-2.0"
 requires-python = ">=3.11"
 authors = [
-    { name = "Logihertz Systems OPC Pvt Ltd" }
+    { name = "logihertzsystems", email = "ops@logihertz.com" },
+    { name = "Sameer Tawade (Creator, Founder, Director & Sole Developer)", email = "ops@logihertz.com" },
+]
+maintainers = [
+    { name = "Logihertz Systems (OPC) Private Limited", email = "ops@logihertz.com" },
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -37,6 +41,13 @@ dev = [
     "ruff>=0.4.0",
     "bandit>=1.7.8",
 ]
+
+
+[project.urls]
+Homepage = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture"
+Repository = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture"
+Documentation = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture#documentation"
+Issues = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture/issues"
 
 [project.scripts]
 lh-net = "lh_net_posture.cli:app"

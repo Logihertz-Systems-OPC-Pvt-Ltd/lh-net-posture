@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.tls.inspector
+# Role:          Security Analysis & Rule Evaluation Engine
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Clean-room TLS certificate inspector.
 
 Inspects local PEM certificates or remote TLS endpoints for weak key sizes,

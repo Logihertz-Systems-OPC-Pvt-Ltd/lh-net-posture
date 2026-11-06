@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.cli
+# Role:          CLI Interface & Execution Controller
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Command-line interface for lh-net-posture exposure auditor."""
 
 from __future__ import annotations
@@ -15,6 +25,11 @@ from lh_net_posture.models import OutputFormat
 from lh_net_posture.sockets.auditor import audit_sockets, load_baseline
 from lh_net_posture.sockets.parser import read_proc_sockets
 from lh_net_posture.tls.inspector import audit_tls_target
+
+# --- Exit Code Semantics ---
+# Exit Code 0: Audit passed successfully with zero policy violations.
+# Exit Code 1: Security findings detected meeting or exceeding failure threshold (--fail-on).
+# Exit Code 2: Command execution error, invalid arguments, or unparseable input target.
 
 app = typer.Typer(
     name="lh-net",

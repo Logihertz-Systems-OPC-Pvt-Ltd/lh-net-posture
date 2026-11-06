@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.models
+# Role:          Data Models & Rule Definitions
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Data models for lh-net-posture network exposure auditor.
 
 Defines findings, severities, socket information, firewall rules, and audit reports.
@@ -12,6 +22,9 @@ from typing import Any
 
 
 class Severity(StrEnum):
+    # --- Severity Rank & Weighting Structure ---
+    # Defines discrete security tiers for findings and threshold gating.
+    # Higher ordinal rankings enforce stricter build break / fail-on gates.
     """Severity classification for audit findings."""
 
     INFO = "info"

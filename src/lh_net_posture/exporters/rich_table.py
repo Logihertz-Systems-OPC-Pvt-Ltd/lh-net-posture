@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.exporters.rich_table
+# Role:          Core Security Engine Component
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Rich terminal table renderer for audit findings."""
 
 from __future__ import annotations

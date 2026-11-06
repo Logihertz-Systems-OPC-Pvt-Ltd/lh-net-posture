@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        tests.test_firewall_auditor
+# Role:          Test Suite & Rule Verification
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Tests for unified firewall auditor."""
 
 from __future__ import annotations
@@ -44,4 +54,3 @@ def test_audit_firewall_file_dispatch(tmp_path: Path) -> None:
     ufw_file.write_text('DEFAULT_INPUT_POLICY="ACCEPT"')
     rep_ufw = audit_firewall_file(ufw_file)
     assert rep_ufw.component == "firewall-ufw"
-

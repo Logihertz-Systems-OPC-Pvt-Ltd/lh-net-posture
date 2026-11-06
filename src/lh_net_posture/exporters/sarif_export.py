@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.exporters.sarif_export
+# Role:          Core Security Engine Component
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """SARIF v2.1.0 exporter for audit reports."""
 
 from __future__ import annotations
@@ -136,7 +146,7 @@ def _build_sarif_rule(rule_id: str, sample_finding: Finding | None = None) -> di
             "shortDescription": rule_meta["shortDescription"],
             "fullDescription": rule_meta["fullDescription"],
             "defaultConfiguration": rule_meta["defaultConfiguration"],
-            "helpUri": "https://github.com/logihertz/lh-net-posture",
+            "helpUri": "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture",
         }
 
     title = sample_finding.title if sample_finding else rule_id
@@ -149,7 +159,7 @@ def _build_sarif_rule(rule_id: str, sample_finding: Finding | None = None) -> di
         "shortDescription": {"text": title},
         "fullDescription": {"text": desc},
         "defaultConfiguration": {"level": level},
-        "helpUri": "https://github.com/logihertz/lh-net-posture",
+        "helpUri": "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture",
     }
 
 
@@ -215,7 +225,7 @@ def export_sarif(report: AuditReport, indent: int = 2) -> str:
                     "driver": {
                         "name": report.tool,
                         "version": report.version,
-                        "informationUri": "https://github.com/logihertz/lh-net-posture",
+                        "informationUri": "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-net-posture",
                         "rules": rules,
                     }
                 },

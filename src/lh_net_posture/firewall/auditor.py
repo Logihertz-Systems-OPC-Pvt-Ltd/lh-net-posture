@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.firewall.auditor
+# Role:          Security Analysis & Rule Evaluation Engine
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Unified firewall configuration auditor."""
 
 from __future__ import annotations
@@ -63,4 +73,3 @@ def audit_firewall_file(file_path: Path | str) -> AuditReport:
     if fw_type == "nftables":
         return audit_nftables(path, content=content)
     return audit_ufw(path, content=content)
-

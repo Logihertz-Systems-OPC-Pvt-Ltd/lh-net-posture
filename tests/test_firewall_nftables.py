@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        tests.test_firewall_nftables
+# Role:          Test Suite & Rule Verification
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Tests for nftables configuration auditor."""
 
 from __future__ import annotations
@@ -93,4 +103,3 @@ table inet filter {
     blanket = [f for f in report.findings if f.id == "RULE-FW-BLANKET-ALLOW"]
     assert len(blanket) == 1
     assert blanket[0].severity == Severity.CRITICAL
-

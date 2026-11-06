@@ -1,3 +1,13 @@
+# ==============================================================================
+# Product:       lh-net-posture (lh-net)
+# Module:        src.lh_net_posture.sockets.parser
+# Role:          Input Parser & Configuration Ingestion
+# Organization:  Logihertz Systems (OPC) Private Limited (logihertzsystems)
+# Creator:       Sameer Tawade (Creator, Founder, Director & Whole and Sole Developer)
+# Contact:       ops@logihertz.com | https://logihertz.com/
+# License:       Apache License 2.0 (SPDX-License-Identifier: Apache-2.0)
+# ==============================================================================
+
 """Parser for Linux /proc/net socket tables.
 
 Parses /proc/net/tcp, /proc/net/tcp6, /proc/net/udp, and /proc/net/udp6 to
@@ -16,6 +26,10 @@ TCP_STATE_LISTEN = "0A"
 
 
 def parse_ipv4_hex(hex_str: str) -> str:
+    # --- Multi-Format Parsing & Normalization Engine ---
+    # Autodetects manifest formats (JSON, YAML, .conf, .env, CSV, JSONL),
+    # applies fallback decoders, recovers from malformed lines, and standardizes
+    # raw configuration attributes into typed domain model instances.
     """Parse an 8-character little-endian hex string into an IPv4 address.
 
     Args:

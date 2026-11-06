@@ -1,32 +1,51 @@
 # Security Policy
 
-Logihertz Systems OPC Pvt Ltd is committed to ensuring the security and integrity of our software and network posture auditing tools.
+## Overview
+
+`lh-net-posture` is an open-source security tool developed by **Logihertz Systems (OPC) Private Limited**.
+Because security tools must maintain the highest standards of safety and integrity, `lh-net-posture`
+is engineered with a zero-daemon, clean-room design that operates entirely offline. It does not
+transmit telemetry, execute external network calls, or require persistent background daemons.
+
+---
 
 ## Supported Versions
 
-Only the latest active major/minor release is actively supported with security updates.
+Only the latest active minor release of `lh-net-posture` receives security updates and bug fixes.
 
 | Version | Supported          |
 |:-------:|:------------------:|
 | 0.1.x   | :white_check_mark: |
-| < 0.1   | :x:                |
+| < 0.1.0 | :x:                |
+
+---
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability or exposure risk in `lh-net-posture`, please report it responsibly rather than opening a public issue on GitHub.
+If you discover a security vulnerability, parser flaw, or denial-of-service issue in `lh-net-posture`,
+please report it responsibly through our security response channel.
+**Do not create a public GitHub issue for security vulnerabilities.**
 
-1. **Email Details**: Send a description of the issue to [security@logihertz.com](mailto:security@logihertz.com).
-2. **Include in Report**:
-   - A description of the vulnerability and potential impact.
-   - Step-by-step instructions or minimal reproducer code to trigger the issue.
-   - Operating system and Python version.
-   - Any remediation suggestions if known.
+### Vulnerability Reporting Process
+
+1. **Email Details**: Send an advisory email to:
+   **ops@logihertz.com**
+2. **Include Key Information**:
+   - Component / module name affected
+   - Specific version of `lh-net-posture`
+   - Clear description of the vulnerability and potential security impact
+   - Minimal reproduction snippet, proof-of-concept payload, or configuration manifest
 3. **Response Timeline**:
-   - We will acknowledge receipt of your report within 48 business hours.
-   - A technical assessment and remediation plan will be provided within 5 business days.
-   - A security patch will be released promptly following verification.
+   - **Acknowledgment**: Within **48 hours** of receiving your report.
+   - **Triage & Status**: Within **3 business days** with preliminary assessment and reproduction verification.
+   - **Remediation & Patch**: We aim to release a verified patch within **5 business days** for high or critical severity issues.
 
-## Clean-Room Cryptography Notice
+---
 
-`lh-net-posture` performs read-only inspections of certificates, socket tables, and firewall configurations. It does not perform active exploitation, network tampering, or credential harvesting.
+## Security Engineering Standards
 
+`lh-net-posture` enforces rigorous internal engineering controls:
+- **100% Offline Static Analysis**: All inspection and parsing occurs locally in memory without remote calls.
+- **Automated SAST**: Automated static analysis security testing via Bandit on every commit and pull request.
+- **Linting & Code Quality**: Strict formatting and linting via Ruff with a 100-character line length limit.
+- **Strict Typing**: Type annotations enforced across all source modules with `from __future__ import annotations`.
