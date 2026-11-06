@@ -15,4 +15,3 @@ __all__ = [
     "inspect_pem_file",
     "inspect_remote_endpoint",
 ]
-

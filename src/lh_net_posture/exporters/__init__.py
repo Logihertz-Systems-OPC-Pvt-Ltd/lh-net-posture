@@ -12,4 +12,3 @@ __all__ = [
     "render_report",
     "render_rich_table",
 ]
-

@@ -63,4 +63,3 @@ def audit_firewall_file(file_path: Path | str) -> AuditReport:
     if fw_type == "nftables":
         return audit_nftables(path, content=content)
     return audit_ufw(path, content=content)
-

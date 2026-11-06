@@ -44,4 +44,3 @@ def test_audit_firewall_file_dispatch(tmp_path: Path) -> None:
     ufw_file.write_text('DEFAULT_INPUT_POLICY="ACCEPT"')
     rep_ufw = audit_firewall_file(ufw_file)
     assert rep_ufw.component == "firewall-ufw"
-

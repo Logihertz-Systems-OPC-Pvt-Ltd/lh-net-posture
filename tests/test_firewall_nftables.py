@@ -93,4 +93,3 @@ table inet filter {
     blanket = [f for f in report.findings if f.id == "RULE-FW-BLANKET-ALLOW"]
     assert len(blanket) == 1
     assert blanket[0].severity == Severity.CRITICAL
-

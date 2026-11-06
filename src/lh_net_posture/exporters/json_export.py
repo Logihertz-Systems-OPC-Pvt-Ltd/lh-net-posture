@@ -18,4 +18,3 @@ def export_json(report: AuditReport, indent: int = 2) -> str:
         JSON string representation.
     """
     return json.dumps(report.to_dict(), indent=indent)
-

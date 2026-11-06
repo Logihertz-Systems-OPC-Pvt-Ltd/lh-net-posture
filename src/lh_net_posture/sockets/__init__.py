@@ -18,4 +18,3 @@ __all__ = [
     "parse_proc_net_file",
     "read_proc_sockets",
 ]
-
