@@ -100,7 +100,7 @@ The detection engine evaluates configurations, manifests, firmware, protocols, a
 | `LH-NET-007` | `HIGH` | `10` | `CWE-330` | PRNG unseeded or failing continuous statistical health tests | Incorporate NIST SP 800-90B continuous entropy health testing |
 | `LH-NET-008` | `MEDIUM` | `4` | `CWE-285` | Coarse-grained permissions allowing lateral privilege escalation | Implement fine-grained RBAC and granular authorization checks |
 | `LH-NET-009` | `MEDIUM` | `4` | `CWE-400` | Missing rate limits or burst quotas on expensive operations | Configure token-bucket throttling and bounded allocation caps |
-| `LH-NET-010` | `LOW` | `1` | `CWE-778` | Security events not recorded to a tamper-evident audit log | Enable structured hash-chained audit logging to /var/log/struct-os.log |
+| `LH-NET-010` | `LOW` | `1` | `CWE-778` | Security events not recorded to a tamper-evident audit log | Enable structured hash-chained audit logging to /var/log/lh-net-posture.log |
 
 ---
 
@@ -143,23 +143,36 @@ Exported SARIF documents validate against the official OASIS schema (`sarif-sche
 
 ---
 
-## Section 6: Future Development Roadmap & Extension Architecture
+## 6. Standalone Future Development Roadmap (`v0.2.0` — `v0.5.0`)
 
-### Milestone v0.2.0: Modular Extensions & Telemetry Streaming
-- **Policy Pack Plugin Hooks**: Enable external declarative YAML/JSON rule-pack loading without source modification.
-- **Hardware Telemetry Streaming**: Real-time integration with SPI, I2C, UART, CAN, and eBPF kernel event rings.
-- **Configurable Severity Weights**: Support custom industrial profiles (e.g. Nuclear/Medical safety vs. Commercial IoT).
+`lh-net-posture` is developed as an independent, standalone open-source project. The following roadmap defines the planned architectural, algorithmic, and protocol enhancements for upcoming point releases of `lh-net-posture`:
 
-### Milestone v0.5.0: Native STRUCT OS Integration & Daemonless IPC
-- **STRUCT OS Security Bus**: Native zero-copy shared memory integration with the STRUCT OS Security Command Center.
-- **Automated Remediation Synthesis**: Direct IPC bridge with `lh-auto-remediation` for automatic synthesizing of verified unified diffs.
-- **Hardware Root-of-Trust Attestation**: Cryptographic sealing of telemetry reports via TPM 2.0 PCR-bound quotes.
+| Target Release | Milestone Focus | Planned Technical Deliverables for `lh-net-posture` |
+|---|---|---|
+| **`v0.2.0`** | Parser & Protocol Expansion | Add IPv6 listening socket inspection (/proc/net/tcp6, /proc/net/udp6), Linux network namespace enumeration, and WireGuard/IPsec interface checks. |
+| **`v0.3.0`** | Deep Algorithmic & Stateful Analysis | Implement Linux nftables and iptables rule-shadowing analysis and ARP/NDP neighbor table spoofing posture verification. |
+| **`v0.4.0`** | Remediation, Synthesis & Format Interop | Synthesize host-based zero-trust nftables micro-perimeter firewall rulesets locked strictly to observed legitimate service sockets. |
+| **`v0.5.0`** | High-Throughput Performance & Formal Verification | Add Linux ss / Netlink INET_DIAG process-to-socket attribution and unauthorized raw/packet socket (AF_PACKET) alerts. |
 
-### Milestone v1.0.0: High-Assurance Certification & Hardening
-- **FIPS 140-3 Validation**: Cryptographic module boundary verification and NIST CAVP compliance testing.
-- **Common Criteria EAL4+ Alignment**: Formal verification of deterministic security targets and functional invariants.
-- **Automotive & Industrial Compliance**: Formal baseline compliance with ISO 21434 (Automotive Cybersecurity) and IEC 62443 (Industrial Automation & Control Systems).
-- **Signed Binary Attestation**: In-toto attestation and Cosign cryptographic signing across all release artifacts.
+### 6.1 `v0.2.0` — Parser & Protocol Expansion
+- **Format & Protocol Ingestion**: Add IPv6 listening socket inspection (/proc/net/tcp6, /proc/net/udp6), Linux network namespace enumeration, and WireGuard/IPsec interface checks.
+- **Zero-Dependency Architecture**: Pure standard library implementation with deterministic parsing guarantees and strict error handling.
+- **Verification & Telemetry**: Regression test suites verifying schema edge-cases, malformed payload rejections, and SARIF v2.1.0 output fidelity.
+
+### 6.2 `v0.3.0` — Deep Algorithmic & Stateful Analysis
+- **Algorithmic Core**: Implement Linux nftables and iptables rule-shadowing analysis and ARP/NDP neighbor table spoofing posture verification.
+- **State Machine & Analysis Engine**: High-fidelity state tracking, cycle detection, and invariant checking with minimal computational overhead.
+- **Differential & Regression Verification**: Comprehensive test harnesses covering stateful transitions, edge conditions, and mathematical boundary constraints.
+
+### 6.3 `v0.4.0` — Remediation, Synthesis & Format Interoperability
+- **Synthesis & Interoperability**: Synthesize host-based zero-trust nftables micro-perimeter firewall rulesets locked strictly to observed legitimate service sockets.
+- **Automated Remediation Workflows**: Idempotent generation of verified configuration patches, policy rules, and standardized cross-format exports.
+- **Contract & Artifact Validation**: Cryptographic baseline verification and end-to-end integration testing for synthesized deliverables.
+
+### 6.4 `v0.5.0` — High-Throughput Performance & Formal Verification
+- **High-Throughput Optimization**: Add Linux ss / Netlink INET_DIAG process-to-socket attribution and unauthorized raw/packet socket (AF_PACKET) alerts.
+- **Hardware & Kernel Acceleration**: Vectorized SIMD/eBPF/sub-millisecond streaming execution with bounded memory allocation.
+- **Formal Verification & Assurance**: Mathematical proof of invariant preservation, false-positive calibration, and high-assurance certification baselines.
 
 ---
 
