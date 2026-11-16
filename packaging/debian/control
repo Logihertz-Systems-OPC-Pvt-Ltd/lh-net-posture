@@ -1,0 +1,9 @@
+Package: lh-net-posture
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://www.logihertz.com
+Description: lh-net - Socket Exposure Density & Unauthenticated Binding Weight
+ Host and perimeter network security posture auditor inspecting listening TCP/UDP sockets, routing tables, IP forwarding flags, ARP spoofing defenses, and unauthenticated service bindings.
